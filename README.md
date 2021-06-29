@@ -43,7 +43,11 @@
 ```
 
 然后我们安装 vscode 插件 `Prettier - Code formatter`
+
 安装完成后再项目根目录创建`.vscode`目录，下面创建`settings.json`文件，该文件的配置会优先于 vscode 的 setting 配置
+
 这样别人下载你的项目后就不会因为 vscode 的全局配置不同而导致项目代码规范不同了
+
 在项目中有`.prettierrc`或`.editorconfig`文件时，`.vscode/settings.json`文件配置不会起作用，所以我们把配置全部写在`.vscode/settings.json`里面
+
 并且把项目中的`.prettierrc`和`.editorconfig`文件删掉，这样就能使用统一的格式化配置文件了
