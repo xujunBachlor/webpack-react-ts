@@ -1,0 +1,10 @@
+.kurumi {
+  display: block;
+  color: violet;
+
+  .child {
+    display: inline-block;
+    position: relative;
+    float: left;
+  }
+}

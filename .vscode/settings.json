@@ -1,0 +1,63 @@
+{
+  // 指定哪些文件不参与搜索
+  "search.exclude": {
+    "**/node_modules": true,
+    "dist": true,
+    "yarn.lock": true
+  },
+  "editor.formatOnSave": true,
+	"prettier.trailingComma": "none",	// 对象的最后一个属性末尾也会添加 , ，比如 { a: 1, b: 2 } 会格式为 { a: 1, b: 2, }
+  "prettier.tabWidth": 2,	// 缩进大小
+  "prettier.semi": false,	// 分号是否添加
+  "prettier.singleQuote": true,	// 是否单引号
+	"prettier.jsxSingleQuote": true,	// 在JSX中使用单引号而不是双引号
+  "prettier.endOfLine": "lf",	// 与 .editorconfig 保持一致设置
+  "prettier.printWidth": 120,	// 单行代码最长字符长度，超过之后会自动格式化换行
+  "prettier.bracketSpacing": true,	// 在对象中的括号之间打印空格， {a: 5} 格式化为 { a: 5 }
+  "prettier.arrowParens": "always",	// 箭头函数的参数无论有几个，都要括号包裹。比如 (a) => {} ，如果设为 avoid ，会自动格式化为 a => {}
+
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  // "eslint.run":"onSave",
+  "typescript.tsdk": "./node_modules/typescript/lib", // 代替 vscode 的 ts 语法智能提示
+
+  // 使用 stylelint 自身的校验即可
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[less]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+}
