@@ -1,6 +1,7 @@
 .kurumi {
-  display: block;
+  display: grid;
   color: violet;
+  transform: rotateX(45deg);
 
   .child {
     display: inline-block;
