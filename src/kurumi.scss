@@ -3,6 +3,10 @@
   color: violet;
   transform: rotateX(45deg);
 
+  .img {
+    width: 100%;
+  }
+
   .child {
     display: inline-block;
     position: relative;

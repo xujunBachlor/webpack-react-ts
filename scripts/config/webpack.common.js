@@ -3,6 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const WebpackBar = require('webpackbar')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const TerserWebpackPlugin = require('terser-webpack-plugin')
+const OptmizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 // const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 const { PROJECT_PATH, isDev } = require('../constant')
 
@@ -23,7 +26,7 @@ module.exports = {
       {
         test: /\.s?css$/,
         use: [
-          'style-loader',
+          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -131,5 +134,28 @@ module.exports = {
     }),
     // 每次打包时清空掉输出的目录
     new CleanWebpackPlugin()
-  ]
+  ],
+  externals: {
+    react: 'React',
+    'react-dom': 'ReactDOM'
+  },
+  optimization: {
+    minimize: !isDev,
+    minimizer: [
+      !isDev &&
+        // 压缩js代码
+        new TerserWebpackPlugin({
+          extractComments: false, // 设为 false 意味着去除所有注释，除了有特殊标记的注释
+          terserOptions: {
+            compress: { pure_funcs: ['console.log'] }
+          }
+        }),
+      // 压缩css代码
+      !isDev && new OptmizeCssAssetsWebpackPlugin()
+    ].filter(Boolean),
+    splitChunks: {
+      chunks: 'all',
+      name: false
+    }
+  }
 }
