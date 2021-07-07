@@ -1,7 +1,6 @@
 import React, { MouseEvent } from 'react'
 import 'Base/kurumi.scss'
 import { add } from 'Base/utils/math'
-import violet from './assets/violet.jpg'
 
 interface IProps {
   name: string
@@ -10,7 +9,7 @@ interface IState {
   ahri: string
 }
 
-class Ahri extends React.PureComponent<IProps, IState> {
+class Ahri extends React.Component<IProps, IState> {
   constructor(props: IProps) {
     super(props)
     this.state = {
@@ -30,7 +29,6 @@ class Ahri extends React.PureComponent<IProps, IState> {
     const state = { ...this.state }
     return (
       <div className='kurumi' onClick={(e: MouseEvent) => this.handleClick(e)}>
-        <img src={violet} alt='violet' className='img' />
         {state.ahri}nice
       </div>
     )

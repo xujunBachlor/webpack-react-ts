@@ -93,7 +93,11 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.json'],
     alias: {
-      Base: path.resolve(PROJECT_PATH, './src')
+      Base: path.resolve(PROJECT_PATH, './src'),
+      Components: path.resolve(PROJECT_PATH, './src/components'),
+      Utils: path.resolve(PROJECT_PATH, './src/utils'),
+      Entity: path.resolve(PROJECT_PATH, './src/entity'),
+      Static: path.resolve(PROJECT_PATH, './src/static')
     }
   },
   plugins: [
